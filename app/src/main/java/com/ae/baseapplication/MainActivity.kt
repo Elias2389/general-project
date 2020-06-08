@@ -20,7 +20,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setModules() {
-        addDeepLinkButton(DeepLinkFactoryImpl("mercadopago://send_money", "envio de dinero"))
+        addDeepLinkButton(DeepLinkFactoryImpl("library://my_deep_link", "My library"))
     }
 
     private fun addDeepLinkButton(deepLinkFactory: DeepLinkFactory) {

@@ -7,6 +7,7 @@ import androidx.fragment.app.FragmentActivity
 class DeepLinkFactoryImpl(private val deepLinkUri: String,
                           private val label:String): DeepLinkFactory {
 
+
     override fun getTextToLabel(): String {
         return label
     }
@@ -14,12 +15,8 @@ class DeepLinkFactoryImpl(private val deepLinkUri: String,
     override fun createDeepLinkIntent(context: FragmentActivity): Intent {
         return Intent().apply {
             setPackage(context.packageName)
-            data = getDeepLinkUri()
+            data = Uri.parse(deepLinkUri)
         }
-    }
-
-    private fun getDeepLinkUri(): Uri {
-        return Uri.parse(deepLinkUri)
     }
 
 }
