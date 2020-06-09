@@ -9,7 +9,7 @@ import com.ae.baseapplication.common.deepLink.DeepLinkFactoryImpl
 
 class MainActivity : AppCompatActivity() {
 
-    lateinit var container: LinearLayout
+    private lateinit var container: LinearLayout
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
