@@ -9,7 +9,6 @@
 
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
-
                 <data
                     android:host="my_deep_link"
                     android:scheme="library" />
