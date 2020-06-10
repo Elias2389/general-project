@@ -26,6 +26,7 @@ class MainActivity : AppCompatActivity() {
     private fun addDeepLinkButton(deepLinkFactory: DeepLinkFactory) {
         val button = Button(this).apply {
             text = deepLinkFactory.getTextToLabel()
+            background = resources.getDrawable(R.drawable.coner_radius)
             buttonListener(this, deepLinkFactory)
         }
         container.addView(button)
