@@ -3,7 +3,7 @@
     package="com.ae.mylibrary">
 
     <application>
-        <activity android:name=".LibraryActivity">
+        <activity android:name=".entities.characterdetail.view.CharactersListActivity">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
 
