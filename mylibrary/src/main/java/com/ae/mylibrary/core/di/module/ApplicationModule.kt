@@ -68,6 +68,12 @@ class ApplicationModule(private val application: Application) {
             .build()
     }
 
+    /**
+     * Provide retrofit
+     *
+     * @param okHttpClient
+     * @return Retrofit
+     */
     @Provides
     @Singleton
     fun provideRetrofit(okHttpClient: OkHttpClient): Retrofit {
