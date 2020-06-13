@@ -1,6 +1,10 @@
 package com.ae.mylibrary.entities.characterslist.interactor
 
-class CharactersListInteractorImpl: CharactersListInteractor {
+import com.ae.mylibrary.common.service.CharactersListService
+import retrofit2.Retrofit
+
+class CharactersListInteractorImpl(private val charactersListService: CharactersListService):
+    CharactersListInteractor {
 
     override fun fetchData() {
         TODO("Not yet implemented")

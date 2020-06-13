@@ -6,6 +6,8 @@ import com.ae.mylibrary.R
 
 class CharactersListActivity : AppCompatActivity(), CharactersListView {
 
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_library)

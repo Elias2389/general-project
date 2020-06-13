@@ -1,7 +1,21 @@
 package com.ae.mylibrary.entities.characterslist.view
 
-import com.ae.mylibrary.common.base.BaseView
+interface CharactersListView {
+    /**
+     * Method to Fetch data from Rest API
+     *
+     */
+    fun fetchData()
 
-interface CharactersListView: BaseView {
+    /**
+     * Method to show success case
+     *
+     */
+    fun successData()
 
+    /**
+     * Method to show error case
+     *
+     */
+    fun errorData()
 }

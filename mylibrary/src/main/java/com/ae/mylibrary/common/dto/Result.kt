@@ -1,4 +1,4 @@
-package com.ae.mylibrary.dto
+package com.ae.mylibrary.common.dto
 
 data class Result(
     val created: String,
