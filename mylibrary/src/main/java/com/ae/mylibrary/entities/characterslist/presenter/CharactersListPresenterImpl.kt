@@ -1,4 +1,4 @@
-package com.ae.mylibrary.entities.characterdetail.presenter
+package com.ae.mylibrary.entities.characterslist.presenter
 
 class CharactersListPresenterImpl: CharactersListPresenter {
     override fun fetchData() {

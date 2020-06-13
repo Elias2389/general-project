@@ -1,6 +1,6 @@
-package com.ae.mylibrary.entities.characterdetail.view
+package com.ae.mylibrary.common.base
 
-interface CharactersListView {
+interface BaseView {
     /**
      * Method to Fetch data from Rest API
      *

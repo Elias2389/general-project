@@ -2,8 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.ae.mylibrary">
 
-    <application>
-        <activity android:name=".entities.characterdetail.view.CharactersListActivity">
+    <application
+        >
+        <activity android:name="com.ae.mylibrary.entities.characterslist.view.CharactersListActivity">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
 

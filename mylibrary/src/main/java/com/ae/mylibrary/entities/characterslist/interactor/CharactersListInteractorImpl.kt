@@ -1,6 +1,7 @@
-package com.ae.mylibrary.entities.characterdetail.interactor
+package com.ae.mylibrary.entities.characterslist.interactor
 
 class CharactersListInteractorImpl: CharactersListInteractor {
+
     override fun fetchData() {
         TODO("Not yet implemented")
     }

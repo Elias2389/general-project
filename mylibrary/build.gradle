@@ -1,6 +1,7 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion 29
@@ -16,14 +17,36 @@ android {
         consumerProguardFiles 'consumer-rules.pro'
     }
 
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
     buildTypes {
+        debug {
+            buildConfigField "String", "BASE_URL", BASE_URL
+            testCoverageEnabled true
+        }
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            testCoverageEnabled false
         }
     }
 
 }
+
+ext {
+    retrofitVersion = "2.5.0"
+    logginInterceptorVersion = "3.11.0"
+    gsonVersion = "2.8.5"
+    daggerVersion = "2.20"
+    rxJavaVersion = "2.2.6"
+    rxAndroidVersion = "2.1.1"
+    rxAdapter = "2.4.0"
+}
+
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
@@ -31,15 +54,32 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.1.0'
     implementation 'androidx.core:core-ktx:1.3.0'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
-    testImplementation 'junit:junit:4.12'
+    testImplementation 'junit:junit:4.13'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 
+
+    //RX java
+    implementation "io.reactivex.rxjava2:rxandroid:$rxAndroidVersion"
+    implementation "io.reactivex.rxjava2:rxjava:$rxJavaVersion"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:$rxAdapter"
+
+    //Retrofit
+    implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofitVersion"
+    implementation "com.google.code.gson:gson:$gsonVersion"
+    implementation "com.squareup.okhttp3:logging-interceptor:$logginInterceptorVersion"
+
+    //Dagger
+    implementation 'com.google.dagger:dagger:2.24'
+    kapt 'com.google.dagger:dagger-compiler:2.13'
+
     // Required -- JUnit 4 framework
-    testImplementation 'junit:junit:4.12'
+    testImplementation 'junit:junit:4.13'
     // Optional -- Robolectric environment
-    testImplementation 'androidx.test:core:1.0.0'
+    testImplementation 'androidx.test:core:1.2.0'
     // Optional -- Mockito framework
-    testImplementation 'org.mockito:mockito-core:1.10.19'
+    testImplementation 'org.mockito:mockito-core:3.3.0'
 
 }
+

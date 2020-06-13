@@ -1,4 +1,4 @@
-package com.ae.mylibrary.entities.characterdetail.interactor
+package com.ae.mylibrary.entities.characterslist.interactor
 
 interface CharactersListInteractor {
     /**

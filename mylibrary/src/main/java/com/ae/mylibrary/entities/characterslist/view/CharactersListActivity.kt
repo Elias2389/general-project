@@ -1,4 +1,4 @@
-package com.ae.mylibrary.entities.characterdetail.view
+package com.ae.mylibrary.entities.characterslist.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -22,4 +22,5 @@ class CharactersListActivity : AppCompatActivity(), CharactersListView {
     override fun errorData() {
         TODO("Not yet implemented")
     }
+
 }
