@@ -13,12 +13,16 @@ class BaseApplication: Application() {
     override fun onCreate() {
         super.onCreate()
 
-        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+
 
         component = DaggerApplicationComponent
             .builder()
             .applicationModule(ApplicationModule(this))
             .build()
 
+    }
+
+    fun getComponent(): DaggerApplicationComponent {
+        return component as DaggerApplicationComponent
     }
 }

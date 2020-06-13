@@ -118,8 +118,8 @@ class ApplicationModule(private val application: Application) {
      */
     @Provides
     @Singleton
-    fun provideCharactersListPresenter(view: CharactersListView,
+    fun provideCharactersListPresenter(
                                        charactersListInteractor: CharactersListInteractor): CharactersListPresenter {
-        return CharactersListPresenterImpl(view, charactersListInteractor)
+        return CharactersListPresenterImpl(charactersListInteractor)
     }
 }
