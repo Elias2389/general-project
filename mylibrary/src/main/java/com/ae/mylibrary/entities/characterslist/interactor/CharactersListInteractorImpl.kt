@@ -2,11 +2,10 @@ package com.ae.mylibrary.entities.characterslist.interactor
 
 import android.annotation.SuppressLint
 import android.util.Log
+import com.ae.mylibrary.common.dto.Result
 import com.ae.mylibrary.common.service.CharactersListService
-import io.reactivex.Scheduler
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
-import retrofit2.Retrofit
 
 class CharactersListInteractorImpl(private val charactersListService: CharactersListService):
     CharactersListInteractor {
@@ -24,7 +23,7 @@ class CharactersListInteractorImpl(private val charactersListService: Characters
             })
     }
 
-    override fun successData() {
+    override fun successData(results: List<Result>) {
         TODO("Not yet implemented")
     }
 

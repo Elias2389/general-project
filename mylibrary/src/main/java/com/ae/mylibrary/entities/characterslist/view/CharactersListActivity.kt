@@ -3,6 +3,7 @@ package com.ae.mylibrary.entities.characterslist.view
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.ae.mylibrary.R
+import com.ae.mylibrary.common.dto.Result
 import com.ae.mylibrary.core.BaseApplicationLibrary
 import com.ae.mylibrary.entities.characterslist.presenter.CharactersListPresenter
 import javax.inject.Inject
@@ -16,6 +17,8 @@ class CharactersListActivity : AppCompatActivity(), CharactersListView {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_library)
         (application as BaseApplicationLibrary).getComponent().inject(this)
+        presenter.setView(this)
+
         fetchData()
     }
 
@@ -23,7 +26,7 @@ class CharactersListActivity : AppCompatActivity(), CharactersListView {
         presenter.fetchData()
     }
 
-    override fun successData() {
+    override fun successData(results: List<Result>) {
         TODO("Not yet implemented")
     }
 

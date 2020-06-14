@@ -1,5 +1,7 @@
 package com.ae.mylibrary.entities.characterslist.interactor
 
+import com.ae.mylibrary.common.dto.Result
+
 interface CharactersListInteractor {
     /**
      * Method to Fetch data from Rest API
@@ -11,7 +13,7 @@ interface CharactersListInteractor {
      * Method to show success case
      *
      */
-    fun successData()
+    fun successData(results: List<Result>)
 
     /**
      * Method to show error case
