@@ -4,11 +4,15 @@ import android.annotation.SuppressLint
 import android.util.Log
 import com.ae.mylibrary.common.dto.Result
 import com.ae.mylibrary.common.service.CharactersListService
+import com.ae.mylibrary.entities.characterslist.presenter.CharactersListPresenter
+import com.ae.mylibrary.entities.characterslist.view.CharactersListView
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 
 class CharactersListInteractorImpl(private val charactersListService: CharactersListService):
     CharactersListInteractor {
+
+    private var presenter: CharactersListPresenter? = null
 
     @SuppressLint("CheckResult")
     override fun fetchData() {
@@ -17,17 +21,23 @@ class CharactersListInteractorImpl(private val charactersListService: Characters
             .observeOn(AndroidSchedulers.mainThread())
             .subscribeOn(Schedulers.io())
             .subscribe({ success ->
-                Log.i("Prueba->", success.toString())
+                successData(success.results)
             }, {
 
             })
     }
 
     override fun successData(results: List<Result>) {
-        TODO("Not yet implemented")
+        this.presenter?.successData(results)
     }
 
     override fun errorData() {
         TODO("Not yet implemented")
     }
+
+    override fun setPresenter(presenter: CharactersListPresenter) {
+        this.presenter = presenter
+    }
+
+
 }

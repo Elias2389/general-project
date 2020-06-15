@@ -1,6 +1,8 @@
 package com.ae.mylibrary.entities.characterslist.interactor
 
 import com.ae.mylibrary.common.dto.Result
+import com.ae.mylibrary.entities.characterslist.presenter.CharactersListPresenter
+import com.ae.mylibrary.entities.characterslist.view.CharactersListView
 
 interface CharactersListInteractor {
     /**
@@ -20,4 +22,13 @@ interface CharactersListInteractor {
      *
      */
     fun errorData()
+
+    /**
+     * Method to set presenter
+     *
+     */
+    fun setPresenter(presenter: CharactersListPresenter)
+
+
+
 }

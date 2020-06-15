@@ -9,6 +9,10 @@ class CharactersListPresenterImpl(private val interactor: CharactersListInteract
 
     private var view: CharactersListView? = null
 
+    init {
+        interactor.setPresenter(this)
+    }
+
     override fun fetchData() {
         interactor.fetchData()
     }
