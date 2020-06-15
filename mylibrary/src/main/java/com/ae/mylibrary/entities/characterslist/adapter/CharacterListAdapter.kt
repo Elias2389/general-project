@@ -14,7 +14,7 @@ import com.bumptech.glide.Glide
 
 class CharacterListAdapter(private val results: List<Result>,
                            private val context: Context
-):    RecyclerView.Adapter<CharacterListAdapter.ViewHolder>() {
+):  RecyclerView.Adapter<CharacterListAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(
@@ -36,6 +36,7 @@ class CharacterListAdapter(private val results: List<Result>,
         Glide
             .with(context)
             .load(results[position].image)
+            .centerCrop()
             .into(holder.image)
     }
 

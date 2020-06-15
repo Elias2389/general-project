@@ -16,9 +16,6 @@ import org.mockito.junit.MockitoJUnitRunner
 @RunWith(MockitoJUnitRunner::class)
 class DeepLinkFactoryImplTest {
 
-    @Mock
-    private lateinit var context: FragmentActivity
-
     private lateinit var deepLinkFactory: DeepLinkFactory
 
     @Before
