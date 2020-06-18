@@ -49,4 +49,8 @@ class CharactersListActivity : AppCompatActivity(), CharactersListView {
         TODO("Not yet implemented")
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        presenter.disposeObserver()
+    }
 }

@@ -3,6 +3,7 @@ package com.ae.mylibrary.entities.characterslist.interactor
 import com.ae.mylibrary.common.dto.Result
 import com.ae.mylibrary.entities.characterslist.presenter.CharactersListPresenter
 import com.ae.mylibrary.entities.characterslist.view.CharactersListView
+import io.reactivex.disposables.Disposable
 
 interface CharactersListInteractor {
     /**
@@ -29,6 +30,10 @@ interface CharactersListInteractor {
      */
     fun setPresenter(presenter: CharactersListPresenter)
 
-
+    /**
+     * Methods to dispose
+     *
+     */
+    fun disposeObserver()
 
 }

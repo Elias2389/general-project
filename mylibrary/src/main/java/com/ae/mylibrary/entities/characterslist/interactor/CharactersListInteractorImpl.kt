@@ -7,24 +7,30 @@ import com.ae.mylibrary.common.service.CharactersListService
 import com.ae.mylibrary.entities.characterslist.presenter.CharactersListPresenter
 import com.ae.mylibrary.entities.characterslist.view.CharactersListView
 import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.disposables.CompositeDisposable
+import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
 
 class CharactersListInteractorImpl(private val charactersListService: CharactersListService):
     CharactersListInteractor {
 
     private var presenter: CharactersListPresenter? = null
+    private var compositeDisposable: CompositeDisposable = CompositeDisposable()
 
     @SuppressLint("CheckResult")
     override fun fetchData() {
-        charactersListService
-            .getCharacterList()
-            .observeOn(AndroidSchedulers.mainThread())
-            .subscribeOn(Schedulers.io())
-            .subscribe({ success ->
-                successData(success.results)
-            }, {
 
-            })
+        compositeDisposable.add(
+            charactersListService
+                .getCharacterList()
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.io())
+                .subscribe({ success ->
+                    successData(success.results)
+                }, {
+
+                })
+        )
     }
 
     override fun successData(results: List<Result>) {
@@ -39,5 +45,8 @@ class CharactersListInteractorImpl(private val charactersListService: Characters
         this.presenter = presenter
     }
 
+    override fun disposeObserver() {
+        compositeDisposable.clear()
+    }
 
 }

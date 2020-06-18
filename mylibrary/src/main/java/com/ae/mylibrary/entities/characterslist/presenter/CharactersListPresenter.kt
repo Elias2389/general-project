@@ -2,6 +2,7 @@ package com.ae.mylibrary.entities.characterslist.presenter
 
 import com.ae.mylibrary.common.dto.Result
 import com.ae.mylibrary.entities.characterslist.view.CharactersListView
+import io.reactivex.disposables.Disposable
 
 interface CharactersListPresenter {
     /**
@@ -12,7 +13,7 @@ interface CharactersListPresenter {
 
     /**
      * Method to show success case
-     *
+     *@param results
      */
     fun successData(results: List<Result>)
 
@@ -27,4 +28,10 @@ interface CharactersListPresenter {
      *
      */
     fun setView(view: CharactersListView)
+
+    /**
+     * Methods to dispose
+     *
+     */
+    fun disposeObserver()
 }

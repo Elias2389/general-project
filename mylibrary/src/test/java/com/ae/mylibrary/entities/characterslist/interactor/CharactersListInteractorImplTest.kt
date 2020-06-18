@@ -1,6 +1,5 @@
 package com.ae.mylibrary.entities.characterslist.interactor
 
-import com.ae.mylibrary.BuildConfig
 import com.ae.mylibrary.common.dto.Character
 import com.ae.mylibrary.common.dto.Info
 import com.ae.mylibrary.common.dto.Location
@@ -8,12 +7,7 @@ import com.ae.mylibrary.common.dto.Origin
 import com.ae.mylibrary.common.dto.Result
 import com.ae.mylibrary.common.service.CharactersListService
 import com.ae.mylibrary.entities.characterslist.presenter.CharactersListPresenter
-import com.ae.mylibrary.entities.characterslist.presenter.CharactersListPresenterImpl
-import com.google.gson.Gson
 import io.reactivex.Observable
-import io.reactivex.subscribers.TestSubscriber
-import okhttp3.mockwebserver.MockResponse
-import okhttp3.mockwebserver.MockWebServer
 import org.junit.Before
 import org.junit.Test
 
