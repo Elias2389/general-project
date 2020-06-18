@@ -23,27 +23,36 @@ class CharactersListActivity : AppCompatActivity(), CharactersListView {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_library)
-        (application as BaseApplicationLibrary).getComponent().inject(this)
 
-        recyclerView = findViewById(R.id.character_container)
-
-
-        presenter.setView(this)
-
+        setInject()
+        setupView()
         fetchData()
+    }
 
+    private fun setupView() {
+        recyclerView = findViewById(R.id.character_container)
+        presenter.setView(this)
+        setRecyclerView()
+    }
+
+    private fun setInject() {
+        (application as BaseApplicationLibrary).getComponent().inject(this)
     }
 
     override fun fetchData() {
         presenter.fetchData()
     }
 
-    override fun successData(results: List<Result>) {
+    private fun setRecyclerView() {
         layoutManager = androidx.recyclerview.widget.LinearLayoutManager(this)
         recyclerView.layoutManager = layoutManager
+    }
+
+    override fun successData(results: List<Result>) {
         adapter = CharacterListAdapter(results, this)
         recyclerView.adapter = adapter
     }
+
 
     override fun errorData() {
         TODO("Not yet implemented")
